@@ -14,6 +14,7 @@ function make_plot(){
     set output "${1}.png"
     set xlabel "offset in days"
     set ylabel "number"
+    set key left ins top
     set grid
     set title "${1} by UA (${now})" font ",14"
     plot "${1}.txt" using 1:2 with linespoints title "${1}"
@@ -29,6 +30,7 @@ function make_common_plot(){
     set output "common.png"
     set xlabel "offset in days"
     set ylabel "number"
+    set key left ins top
     set grid
     set title "Common losses by UA (${now})" font ",14"
     plot \

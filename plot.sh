@@ -32,12 +32,14 @@ function make_common_plot(){
     set ylabel "number"
     set key left ins top
     set grid
-    set title "Common losses by UA (${now})" font ",14"
+    set title "Common RUS losses by UA (${now})" font ",14"
     plot \
-    	 "staff.txt" u 1:(\$2/10) with linespoints title "staff x10", \
-    	 "tank.txt" using 1:2 with linespoints title "tank", \
-    	 "armor.txt" using 1:2 with linespoints title "armor", \
-    	 "cannon.txt" using 1:2 with linespoints title "cannon"
+    	 "staff.txt" u 1:(\$2/10) with linespoints title "staff x10",\
+    	 "tank.txt" using 1:2 with linespoints title "tank",\
+    	 "armor.txt" using 1:2 with linespoints title "armor",\
+    	 "cannon.txt" using 1:2 with linespoints title "cannon",\
+    	 "mlrs.txt" using 1:2 with linespoints title "mlrs",\
+    	 "airdefence.txt" using 1:2 with linespoints title "airdefence"
 EOFMarker
     echo "output plot: common.png"
 }
@@ -47,9 +49,13 @@ form_data rus-loss-by-ua.json staff staff.txt
 form_data rus-loss-by-ua.json tank tank.txt
 form_data rus-loss-by-ua.json armor armor.txt
 form_data rus-loss-by-ua.json cannon cannon.txt
+form_data rus-loss-by-ua.json mlrs mlrs.txt
+form_data rus-loss-by-ua.json airdefence airdefence.txt
 
 make_plot staff
 make_plot tank
 make_plot armor
 make_plot cannon
+make_plot mlrs
+make_plot airdefence
 make_common_plot

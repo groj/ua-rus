@@ -22,5 +22,12 @@ EOFMarker
 }
 
 
+form_data rus-loss-by-ua.json staff staff.txt
+make_plot staff
+
 form_data rus-loss-by-ua.json armor armor.txt
 make_plot armor
+
+
+form_data rus-loss-by-ua.json tank tank.txt
+make_plot tank

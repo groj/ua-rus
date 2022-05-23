@@ -36,10 +36,7 @@ function make_common_plot(){
     plot \
     	 "staff.txt" u 1:(\$2/10) with linespoints title "staff x10",\
     	 "tank.txt" using 1:2 with linespoints title "tank",\
-    	 "armor.txt" using 1:2 with linespoints title "armor",\
-    	 "cannon.txt" using 1:2 with linespoints title "cannon",\
-    	 "mlrs.txt" using 1:2 with linespoints title "mlrs",\
-    	 "airdefence.txt" using 1:2 with linespoints title "airdefence"
+    	 "armor.txt" using 1:2 with linespoints title "armor"
 EOFMarker
     echo "output plot: common.png"
 }
@@ -51,6 +48,9 @@ form_data rus-loss-by-ua.json armor armor.txt
 form_data rus-loss-by-ua.json cannon cannon.txt
 form_data rus-loss-by-ua.json mlrs mlrs.txt
 form_data rus-loss-by-ua.json airdefence airdefence.txt
+form_data rus-loss-by-ua.json aircraft aircraft.txt
+form_data rus-loss-by-ua.json helicopter helicopter.txt
+form_data rus-loss-by-ua.json dron dron.txt
 
 make_plot staff
 make_plot tank
@@ -58,4 +58,7 @@ make_plot armor
 make_plot cannon
 make_plot mlrs
 make_plot airdefence
+make_plot aircraft
+make_plot helicopter
+make_plot dron
 make_common_plot

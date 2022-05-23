@@ -15,6 +15,11 @@ function make_plot(){
     set xlabel "offset in days"
     set ylabel "number"
     set key left ins top
+    
+    set style rect fc lt -1 fs solid 0.15 noborder
+    set label "RUS retreat from Kiev" at 37,graph 0.8 center rotate 
+    set obj rect from 32, graph 0 to 41, graph 1
+
     set grid
     set title "${1} by UA (${now})" font ",14"
     plot "${1}.txt" using 1:2 with linespoints title "${1}"
@@ -31,12 +36,18 @@ function make_common_plot(){
     set xlabel "offset in days"
     set ylabel "number"
     set key left ins top
+    
+    set style rect fc lt -1 fs solid 0.15 noborder
+    set label "RUS retreat from Kiev" at 37,graph 0.8 center rotate 
+    set obj rect from 32, graph 0 to 41, graph 1
+
     set grid
     set title "Common RUS losses by UA (${now})" font ",14"
     plot \
     	 "staff.txt" u 1:(\$2/10) with linespoints title "staff x10",\
     	 "tank.txt" using 1:2 with linespoints title "tank",\
-    	 "armor.txt" using 1:2 with linespoints title "armor"
+    	 "armor.txt" using 1:2 with linespoints title "armor",\
+    	 "vehicle.txt" using 1:2 with linespoints title "vehicle"
 EOFMarker
     echo "output plot: common.png"
 }
@@ -51,6 +62,7 @@ form_data rus-loss-by-ua.json airdefence airdefence.txt
 form_data rus-loss-by-ua.json aircraft aircraft.txt
 form_data rus-loss-by-ua.json helicopter helicopter.txt
 form_data rus-loss-by-ua.json dron dron.txt
+form_data rus-loss-by-ua.json vehicle vehicle.txt
 
 make_plot staff
 make_plot tank
@@ -61,4 +73,5 @@ make_plot airdefence
 make_plot aircraft
 make_plot helicopter
 make_plot dron
+make_plot vehicle
 make_common_plot

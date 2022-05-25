@@ -17,7 +17,7 @@ function make_plot(){
     set key left ins top
     
     set style rect fc lt -1 fs solid 0.15 noborder
-    set label "RUS retreat from Kiev" at 37,graph 0.8 center rotate 
+    set label "RUS retreat from Kiev" at 37,graph ${2} center rotate 
     set obj rect from 32, graph 0 to 41, graph 1
 
     set grid
@@ -65,15 +65,15 @@ form_data rus-loss-by-ua.json dron dron.txt
 form_data rus-loss-by-ua.json vehicle vehicle.txt
 form_data rus-loss-by-ua.json special special.txt
 
-make_plot staff
-make_plot tank
-make_plot armor
-make_plot cannon
-make_plot mlrs
-make_plot airdefence
-make_plot aircraft
-make_plot helicopter
-make_plot dron
-make_plot vehicle
-make_plot special
+make_plot staff 0.8
+make_plot tank 0.8
+make_plot armor 0.8
+make_plot cannon 0.8
+make_plot mlrs 0.8
+make_plot airdefence 0.8
+make_plot aircraft 0.8
+make_plot helicopter 0.2
+make_plot dron 0.8
+make_plot vehicle 0.8
+make_plot special 0.8
 make_common_plot

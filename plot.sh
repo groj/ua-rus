@@ -63,6 +63,7 @@ form_data rus-loss-by-ua.json aircraft aircraft.txt
 form_data rus-loss-by-ua.json helicopter helicopter.txt
 form_data rus-loss-by-ua.json dron dron.txt
 form_data rus-loss-by-ua.json vehicle vehicle.txt
+form_data rus-loss-by-ua.json special special.txt
 
 make_plot staff
 make_plot tank
@@ -74,4 +75,5 @@ make_plot aircraft
 make_plot helicopter
 make_plot dron
 make_plot vehicle
+make_plot special
 make_common_plot

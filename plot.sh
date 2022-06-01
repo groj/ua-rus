@@ -28,6 +28,20 @@ EOFMarker
 }
 
 function make_common_plot(){
+    python3 analyzer.py rus-loss-by-ua.json \
+	    staff:0.02 \
+	    tank:0.2 \
+	    armor:0.2 \
+	    cannon:0.2 \
+	    mlrs:0.05 \
+	    airdefence:0.05 \
+	    aircraft:0.1 \
+	    helicopter:0.1 \
+	    dron:0.05 \
+	    vehicle:0.05 \
+	    special:0.05 \
+	    warship:0.05 \
+	    > all.txt
     now=`date "+%d-%m-%Y"`
     gnuplot -persist <<-EOFMarker
 
@@ -47,7 +61,8 @@ function make_common_plot(){
     	 "staff.txt" u 1:(\$2/10) with linespoints title "staff x10",\
     	 "tank.txt" using 1:2 with linespoints title "tank",\
     	 "armor.txt" using 1:2 with linespoints title "armor",\
-    	 "vehicle.txt" using 1:2 with linespoints title "vehicle"
+    	 "vehicle.txt" using 1:2 with linespoints title "vehicle"#,\
+	 #"all.txt" using 1:2 with linespoints title "summarize"
 EOFMarker
     echo "output plot: common.png"
 }

@@ -1,5 +1,5 @@
 #/bin/bash
-
+#
 
 function form_data(){
     cat $1 | jq "[[.${2}[][0]], [.${2}[][4]]] | transpose | .[][]" | paste - - > ${3}

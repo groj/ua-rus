@@ -17,6 +17,14 @@ function make_plot(){
     set key left ins top
     
     set style rect fc lt -1 fs solid 0.15 noborder
+    set label "Sevierodonieck's battle" at 100,graph 0.2 center rotate 
+    set obj rect from 90, graph 0 to 130, graph 1
+
+    set style rect fc lt -1 fs solid 0.15 noborder
+    set label "Azovstal surrender" at 82.5,graph 0.2 center rotate 
+    set obj rect from 80, graph 0 to 84, graph 1
+    
+    set style rect fc lt -1 fs solid 0.15 noborder
     set label "RUS retreat from Kiev" at 37,graph ${2} center rotate 
     set obj rect from 32, graph 0 to 41, graph 1
 
@@ -50,7 +58,15 @@ function make_common_plot(){
     set xlabel "offset in days"
     set ylabel "number"
     set key left ins top
-    
+        
+    set style rect fc lt -1 fs solid 0.15 noborder
+    set label "Sevierodonieck's battle" at 100,graph 0.2 center rotate 
+    set obj rect from 90, graph 0 to 130, graph 1
+
+    set style rect fc lt -1 fs solid 0.15 noborder
+    set label "Azovstal surrender" at 82.5,graph 0.2 center rotate 
+    set obj rect from 80, graph 0 to 84, graph 1
+
     set style rect fc lt -1 fs solid 0.15 noborder
     set label "RUS retreat from Kiev" at 37,graph 0.8 center rotate 
     set obj rect from 32, graph 0 to 41, graph 1
@@ -73,26 +89,27 @@ form_data rus-loss-by-ua.json tank tank.txt
 form_data rus-loss-by-ua.json armor armor.txt
 form_data rus-loss-by-ua.json cannon cannon.txt
 form_data rus-loss-by-ua.json mlrs mlrs.txt
-form_data rus-loss-by-ua.json airdefence airdefence.txt
 form_data rus-loss-by-ua.json aircraft aircraft.txt
 form_data rus-loss-by-ua.json helicopter helicopter.txt
 form_data rus-loss-by-ua.json dron dron.txt
 form_data rus-loss-by-ua.json vehicle vehicle.txt
-form_data rus-loss-by-ua.json special special.txt
-form_data rus-loss-by-ua.json warship warship.txt
-form_data rus-loss-by-ua.json rocket rocket.txt
+#form_data rus-loss-by-ua.json airdefence airdefence.txt
+#form_data rus-loss-by-ua.json special special.txt
+#form_data rus-loss-by-ua.json warship warship.txt
+#form_data rus-loss-by-ua.json rocket rocket.txt
 
 make_plot staff 0.8
 make_plot tank 0.8
 make_plot armor 0.8
 make_plot cannon 0.8
 make_plot mlrs 0.8
-make_plot airdefence 0.8
 make_plot aircraft 0.8
 make_plot helicopter 0.2
 make_plot dron 0.8
 make_plot vehicle 0.8
-make_plot special 0.8
-make_plot warship 0.8
-make_plot rocket 0.8
-make_common_plot
+
+# make_plot special 0.8
+# make_plot warship 0.8
+# make_plot rocket 0.8
+# make_plot airdefence 0.8
+# make_common_plot
